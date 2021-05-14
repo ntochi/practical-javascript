@@ -10,26 +10,30 @@
   <script>
     var todos = ['Item 1', 'Item 2', 'Item 3'];
 
-    console.log(todos);
+    // It should have a function to display todos
+    function display() {
+      console.log(`My todos are: ${todos}`);
+    }
 
     // It should have a function to add a todo
     function add(newTodo) {
       todos.push(newTodo);
-      console.log(todos);
+      display();
     }
 
     // It should have a function to edit a todo
     function edit(position, newValue) {
       todos[position] = newValue
-      console.log(todos);
+      display();
     }
 
     // It should have a function to delete a todo
     function remove(position) {
       todos.splice(position, 1);
-      console.log(todos);
+      display();
     }
 
+    // display();
     // add('Item 4');
     // edit(1, 'Second item changed');
     // remove(0);
