@@ -8,40 +8,36 @@
 </head>
 <body>
   <script>
-    var todos = ['Item 1', 'Item 2', 'Item 3'];
 
-    // It should have a function to display todos
-    function display() {
-      console.log(`My todos are: ${todos}`);
-    }
+    // We should initialize the todo variable with objects.
+    var todos = [
+      { text: 'Item 1', completed: false },
+      { text: 'Item 2', completed: false },
+      { text: 'Item 3', completed: false }
+    ];
 
-    // It should have a function to add a todo
+    console.log(todos);
+
+    // The add function should add objects.
     function add(newTodo) {
-      todos.push(newTodo);
-      display();
+      var obj = { text: newTodo, completed: false };
+      todos.push(obj);
+      console.log(todos);
     }
 
-    // It should have a function to edit a todo
+    // The edit function should edit objects.
     function edit(position, newValue) {
-      todos[position] = newValue
-      display();
+      todos[position].text = newValue;
+      console.log(todos);
     }
 
-    // It should have a function to delete a todo
     function remove(position) {
       todos.splice(position, 1);
-      display();
+      console.log(todos);
     }
 
-    // display();
-    // add('Item 4');
-    // edit(1, 'Second item changed');
-    // remove(0);
-
-
-
-
-
+    // add('Do laundry');
+    // edit(1, 'Item two edited')
   </script>
 </body>
 </html>
