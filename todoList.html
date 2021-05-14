@@ -12,18 +12,27 @@
 
     console.log(todos);
 
-    todos.push('Item 4');
+    // It should have a function to add a todo
+    function add(newTodo) {
+      todos.push(newTodo);
+      console.log(todos);
+    }
 
-    todos[0] = 'Item 1 updated';
+    // It should have a function to edit a todo
+    function edit(position, newValue) {
+      todos[position] = newValue
+      console.log(todos);
+    }
 
-    todos.splice(0, 1);
+    // It should have a function to delete a todo
+    function remove(position) {
+      todos.splice(position, 1);
+      console.log(todos);
+    }
 
-
-
-
-
-
-
+    // add('Item 4');
+    // edit(1, 'Second item changed');
+    // remove(0);
 
 
 
