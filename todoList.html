@@ -15,22 +15,22 @@
       { text: 'Item 3', completed: false }
     ];
 
-    console.log(todos);
+    displayTodos();
 
     function add(newTodo) {
       var obj = { text: newTodo, completed: false };
       todos.push(obj);
-      console.log(todos);
+      displayTodos();
     }
 
     function edit(position, newValue) {
       todos[position].text = newValue;
-      console.log(todos);
+      displayTodos();
     }
 
     function remove(position) {
       todos.splice(position, 1);
-      console.log(todos);
+      displayTodos();
     }
 
     function toggle(position) {
@@ -40,7 +40,17 @@
         todos[position].completed = true;
       }
 
-      console.log(todos);
+      displayTodos()
+    }
+
+    // for (initializeVariable; condition; increment) {
+    //     console.log(codeToRun)
+    // };
+
+    function displayTodos() {
+      for (var i = 0; i < todos.length; i++) {
+        console.log(todos[i])
+      };
     }
 
   </script>
