@@ -9,7 +9,6 @@
 <body>
   <script>
 
-    // We should initialize the todo variable with objects.
     var todos = [
       { text: 'Item 1', completed: false },
       { text: 'Item 2', completed: false },
@@ -18,14 +17,12 @@
 
     console.log(todos);
 
-    // The add function should add objects.
     function add(newTodo) {
       var obj = { text: newTodo, completed: false };
       todos.push(obj);
       console.log(todos);
     }
 
-    // The edit function should edit objects.
     function edit(position, newValue) {
       todos[position].text = newValue;
       console.log(todos);
@@ -36,8 +33,16 @@
       console.log(todos);
     }
 
-    // add('Do laundry');
-    // edit(1, 'Item two edited')
+    function toggle(position) {
+      if (todos[position].completed === true) {
+        todos[position].completed = false;
+      } else {
+        todos[position].completed = true;
+      }
+
+      console.log(todos);
+    }
+
   </script>
 </body>
 </html>
