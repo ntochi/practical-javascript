@@ -33,6 +33,12 @@
       displayTodos();
     }
 
+    function displayTodos() {
+      for (var i = 0; i < todos.length; i++) {
+        console.log(todos[i])
+      };
+    }
+
     function toggle(position) {
       if (todos[position].completed === true) {
         todos[position].completed = false;
@@ -43,14 +49,29 @@
       displayTodos()
     }
 
-    // for (initializeVariable; condition; increment) {
-    //     console.log(codeToRun)
-    // };
+    function toggleAll() {
+      // Find out if everything is true
+      var completedTodos = 0;
 
-    function displayTodos() {
       for (var i = 0; i < todos.length; i++) {
-        console.log(todos[i])
-      };
+        if (todos[i].completed === true) {
+          completedTodos++
+        }
+      }
+
+      if (completedTodos === todos.length) {
+        // If everything is true, change everything to false
+        for (var i = 0; i < todos.length; i++){
+          todos[i].completed = false;
+        }
+      } else {
+        // If everything is false, change everything to true
+        for (var i = 0; i < todos.length; i++){
+          todos[i].completed = true;
+        }
+      }
+
+      displayTodos();
     }
 
   </script>
