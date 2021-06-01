@@ -1,7 +1,13 @@
+Version 8
+[x] It should have a button to add todos.
+[x] It should have a button to edit todos.
+[x] It should have a button to remove todos.
+[x] It should have a button to toggle a single todo.
+
 Version 7
-[x] It should have a displayTodos button.
+[x] It should have a button display todos.
 [x] The displayTodos button should run the displayTodos function.
-[x] It should have a toggleAll button.
+[x] It should have a button toggle all todos.
 [x] The toggleAll button should run the toggleAll function.
 
 Version 6
