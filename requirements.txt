@@ -1,6 +1,7 @@
 Version 9
 [x] There should be an li for each todo.
 [x] Each li should show the text property.
+[x] Each li should show the completed property.
 
 Version 8
 [x] It should have a button to add todos.

@@ -122,27 +122,24 @@
 
     function displayTodos() {
       var todoListUl = document.getElementById('todo-list-ul');
-
       // Clear out existing lists before adding new ones
       todoListUl.innerHTML = '';
 
       // Create new child lists, retrieve text content on the new lists, append text to child lists, then append all to parent list.
       for (var i = 0; i < todos.length; i++) {
         var newLi = document.createElement('li');
-        newLi.innerText = todos[i].text; 
+
+        if (todos[i].completed === true) {
+          newLi.innerText = `[X] ${todos[i].text}`;
+        } else {
+          newLi.innerText = `[ ] ${todos[i].text}`;
+        }
+
         todoListUl.appendChild(newLi);
-
-        // My solution
-        // var newLi = document.createElement('li');
-        // var todoText = document.createTextNode(todos[i].text); 
-        // newLi.appendChild(todoText);
-        // todoListUl.appendChild(newLi);
-
-        console.log(todos[i])
       }
     }
   
-    
+
     // Event listeners
     var addButton = document.getElementById('add-button');
     var addInput = document.getElementById('add-input');
