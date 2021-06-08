@@ -22,13 +22,6 @@
 
   <br>
 
-  <input type="text" id="remove-input">
-  <button id="remove-button">
-    Remove Todo
-  </button>
-
-  <br>
-
   <input type="text" id="toggle-position-input">
   <button id="toggle-button">
     Toggle A Todo
@@ -41,10 +34,6 @@
   </button>
 
   <br>
-
-  <button id="display-button">
-    Display Todos
-  </button>
 
   <ul id="todo-list-ul">
   </ul>
@@ -74,10 +63,11 @@
       displayTodos();
     }
 
-    function remove() {
-      var position = removeInput.value;
-      todos.splice(position, 1);
-      removeInput.value = '';
+    function remove(event) {
+      // event.target is the remove button we clicked on
+      // eventListener function is passed as an event object, the event object has an event target property which in turn has an id.
+      var positionId = event.target.id
+      todos.splice(positionId, 1);
       displayTodos();
     }
 
@@ -122,24 +112,30 @@
 
     function displayTodos() {
       var todoListUl = document.getElementById('todo-list-ul');
-      // Clear out existing lists before adding new ones
       todoListUl.innerHTML = '';
 
-      // Create new child lists, retrieve text content on the new lists, append text to child lists, then append all to parent list.
       for (var i = 0; i < todos.length; i++) {
         var newLi = document.createElement('li');
 
+        // Create delete button, then apppend to lists
+        var removeButton = document.createElement('button');
+        removeButton.innerText = 'Delete';
+        removeButton.addEventListener('click', remove);
+        removeButton.id = i;
+
+        // Mark/unmark completed todos
         if (todos[i].completed === true) {
-          newLi.innerText = `[X] ${todos[i].text}`;
+          newLi.innerText = `[X] ${todos[i].text} `;
         } else {
-          newLi.innerText = `[ ] ${todos[i].text}`;
+          newLi.innerText = `[ ] ${todos[i].text} `;
         }
+
+        newLi.appendChild(removeButton);
 
         todoListUl.appendChild(newLi);
       }
     }
   
-
     // Event listeners
     var addButton = document.getElementById('add-button');
     var addInput = document.getElementById('add-input');
@@ -150,20 +146,12 @@
     var editTextInput = document.getElementById('edit-text-input');
     editButton.addEventListener('click', edit);
 
-    var removeButton = document.getElementById('remove-button');
-    var removeInput = document.getElementById('remove-input');
-    removeButton.addEventListener('click', remove);
-
     var toggleButton = document.getElementById('toggle-button');
     var togglePositionInput = document.getElementById('toggle-position-input');
     toggleButton.addEventListener('click', toggle);
 
     var toggleAllButton = document.getElementById('toggle-all-button');
     toggleAllButton.addEventListener('click', toggleAll);
-
-    var displayTodosButton = document.getElementById('display-button');
-    displayTodosButton.addEventListener('click', displayTodos);
-
   </script>
 </body>
 </html>
