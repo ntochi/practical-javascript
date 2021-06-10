@@ -1,3 +1,7 @@
+Version 11
+[x] Each todo should have a toggle button.
+[x] The toggle buttons should flip it's todo.
+
 Version 10
 [x] Each todo should have a remove button.
 [x] The remove buttons should delete it's todo.

@@ -22,13 +22,6 @@
 
   <br>
 
-  <input type="text" id="toggle-position-input">
-  <button id="toggle-button">
-    Toggle A Todo
-  </button>
-
-  <br>
-
   <button id="toggle-all-button">
     Toggle All Todos
   </button>
@@ -64,23 +57,19 @@
     }
 
     function remove(event) {
-      // event.target is the remove button we clicked on
-      // eventListener function is passed as an event object, the event object has an event target property which in turn has an id.
       var positionId = event.target.id
       todos.splice(positionId, 1);
       displayTodos();
     }
 
-    function toggle() {
-      var position = togglePositionInput.value;
+    function toggle(event) {
+      var positionId = event.target.id;
 
-      if (todos[position].completed === true) {
-        todos[position].completed = false;
+      if (todos[positionId].completed === true) {
+        todos[positionId].completed = false;
       } else {
-        todos[position].completed = true;
+        todos[positionId].completed = true;
       }
-
-      togglePositionInput.value = '';
 
       displayTodos()
     }
@@ -117,20 +106,24 @@
       for (var i = 0; i < todos.length; i++) {
         var newLi = document.createElement('li');
 
-        // Create delete button, then apppend to lists
         var removeButton = document.createElement('button');
         removeButton.innerText = 'Delete';
         removeButton.addEventListener('click', remove);
         removeButton.id = i;
 
-        // Mark/unmark completed todos
+        var toggleButton = document.createElement('button');
+        toggleButton.innerText = 'Toggle';
+        toggleButton.addEventListener('click', toggle);
+        toggleButton.id = i;
+
+
         if (todos[i].completed === true) {
           newLi.innerText = `[X] ${todos[i].text} `;
         } else {
           newLi.innerText = `[ ] ${todos[i].text} `;
         }
 
-        newLi.appendChild(removeButton);
+        newLi.append(toggleButton, removeButton);
 
         todoListUl.appendChild(newLi);
       }
@@ -145,10 +138,6 @@
     var editPositionInput = document.getElementById('edit-position-input');
     var editTextInput = document.getElementById('edit-text-input');
     editButton.addEventListener('click', edit);
-
-    var toggleButton = document.getElementById('toggle-button');
-    var togglePositionInput = document.getElementById('toggle-position-input');
-    toggleButton.addEventListener('click', toggle);
 
     var toggleAllButton = document.getElementById('toggle-all-button');
     toggleAllButton.addEventListener('click', toggleAll);
