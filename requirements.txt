@@ -1,3 +1,6 @@
+Version 12
+[x] Fix duplicate element ID bug
+
 Version 11
 [x] Each todo should have a toggle button.
 [x] The toggle buttons should flip it's todo.

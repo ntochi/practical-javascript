@@ -57,13 +57,19 @@
     }
 
     function remove(event) {
-      var positionId = event.target.id
+      var positionId = event.target.id.split('-')[1];
       todos.splice(positionId, 1);
       displayTodos();
     }
 
     function toggle(event) {
-      var positionId = event.target.id;
+      var positionId = event.target.id.split('-')[1];
+      // The split() method returns an array of strings populated by splitting the calling string at occurrences of the substring separator.
+      // The split() method divides a String into an ordered list of substrings, puts these substrings into an array, and returns the array
+      // Using split() here, we want just the positionId extracted from the string.
+      // event.target.id ===> 'toggle-0'
+      // 'toggle-0'.split('-') ===> ['toggle', '0']
+      // ['toggle', '0'][1] ===> '0'
 
       if (todos[positionId].completed === true) {
         todos[positionId].completed = false;
@@ -109,12 +115,12 @@
         var removeButton = document.createElement('button');
         removeButton.innerText = 'Delete';
         removeButton.addEventListener('click', remove);
-        removeButton.id = i;
+        removeButton.id = `remove-${i}`;
 
         var toggleButton = document.createElement('button');
         toggleButton.innerText = 'Toggle';
         toggleButton.addEventListener('click', toggle);
-        toggleButton.id = i;
+        toggleButton.id = `toggle-${i}`;
 
 
         if (todos[i].completed === true) {
