@@ -1,13 +1,18 @@
+Version 13
+[x] Each todo should have an edit button.
+[x] The edit button should change it's todo.
+[x] Fix blank & cancel bug on prompt().
+
 Version 12
 [x] Fix duplicate element ID bug
 
 Version 11
 [x] Each todo should have a toggle button.
-[x] The toggle buttons should flip it's todo.
+[x] The toggle button should flip it's todo.
 
 Version 10
 [x] Each todo should have a remove button.
-[x] The remove buttons should delete it's todo.
+[x] The remove button should delete it's todo.
 
 Version 9
 [x] There should be an li for each todo.

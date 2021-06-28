@@ -14,14 +14,6 @@
 
   <br>
 
-  <input type="text" id="edit-position-input">
-  <input type="text" id="edit-text-input">
-  <button id="edit-button">
-    Edit Todo
-  </button>
-
-  <br>
-
   <button id="toggle-all-button">
     Toggle All Todos
   </button>
@@ -47,13 +39,16 @@
       displayTodos();
     }
 
-    function edit() {
-      var position = editPositionInput.value;
-      var newValue = editTextInput.value;
-      todos[position].text = newValue;
-      editPositionInput.value = '';
-      editTextInput.value = '';
-      displayTodos();
+    function edit(event) {
+      var positionId = event.target.id.split('-')[1];
+      var oldValue = todos[positionId].text
+      var newValue = prompt('Edit todo', oldValue);
+
+      // If newValue is not equal to blank and null, update data to newValue.
+      if (newValue !== '' && newValue !== null) {
+        todos[positionId].text = newValue;
+        displayTodos();
+      }
     }
 
     function remove(event) {
@@ -64,12 +59,6 @@
 
     function toggle(event) {
       var positionId = event.target.id.split('-')[1];
-      // The split() method returns an array of strings populated by splitting the calling string at occurrences of the substring separator.
-      // The split() method divides a String into an ordered list of substrings, puts these substrings into an array, and returns the array
-      // Using split() here, we want just the positionId extracted from the string.
-      // event.target.id ===> 'toggle-0'
-      // 'toggle-0'.split('-') ===> ['toggle', '0']
-      // ['toggle', '0'][1] ===> '0'
 
       if (todos[positionId].completed === true) {
         todos[positionId].completed = false;
@@ -112,15 +101,20 @@
       for (var i = 0; i < todos.length; i++) {
         var newLi = document.createElement('li');
 
-        var removeButton = document.createElement('button');
-        removeButton.innerText = 'Delete';
-        removeButton.addEventListener('click', remove);
-        removeButton.id = `remove-${i}`;
+        var editButton = document.createElement('button');
+        editButton.innerText = 'Edit';
+        editButton.addEventListener('click', edit);
+        editButton.id = `edit-${i}`;
 
         var toggleButton = document.createElement('button');
         toggleButton.innerText = 'Toggle';
         toggleButton.addEventListener('click', toggle);
         toggleButton.id = `toggle-${i}`;
+
+        var removeButton = document.createElement('button');
+        removeButton.innerText = 'Delete';
+        removeButton.addEventListener('click', remove);
+        removeButton.id = `remove-${i}`;
 
 
         if (todos[i].completed === true) {
@@ -129,7 +123,7 @@
           newLi.innerText = `[ ] ${todos[i].text} `;
         }
 
-        newLi.append(toggleButton, removeButton);
+        newLi.append(editButton, toggleButton, removeButton);
 
         todoListUl.appendChild(newLi);
       }
@@ -140,10 +134,10 @@
     var addInput = document.getElementById('add-input');
     addButton.addEventListener('click', add);
 
-    var editButton = document.getElementById('edit-button');
-    var editPositionInput = document.getElementById('edit-position-input');
-    var editTextInput = document.getElementById('edit-text-input');
-    editButton.addEventListener('click', edit);
+    // var editButton = document.getElementById('edit-button');
+    // var editPositionInput = document.getElementById('edit-position-input');
+    // var editTextInput = document.getElementById('edit-text-input');
+    // editButton.addEventListener('click', edit);
 
     var toggleAllButton = document.getElementById('toggle-all-button');
     toggleAllButton.addEventListener('click', toggleAll);
