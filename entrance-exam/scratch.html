@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Scratch</title>
+</head>
+<body>
+  <script>
+    var outside = 'outside';
+
+    function a() {
+      var aVar = 'a';
+
+      function aInner1() {
+        var aInner1Var = 'aInnerVar';
+
+        function aInner1Inner() {
+          var aInner1InnerVar = 'aInner1InnerVar';
+        }
+
+        aInner1Inner();
+      }
+
+      function aInner2(aInner2Param) {
+        var aInner2Var = aInner2Param;
+      }
+
+      aInner1();
+    }
+
+    function b(bParam) {
+      console.log(bParam);
+    }
+  </script>
+</body>
+</html>

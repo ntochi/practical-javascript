@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Scratch 7</title>
+</head>
+<body>
+  <script>
+    // function isArrayContentsEqual(array1, array2) {
+    //   for (var i = 0; i < array1.length; i++) {
+    //     if (array1[i] !== array2[i]) {
+    //       return false;
+    //     }
+    //   }   
+          
+    //   return true;
+    // }
+
+  
+    function isArrayContentsEqual(array1, array2) {
+      // Check if the arrays are the same length
+      if (array1.length !== array2.length) {
+        return false;
+      } 
+
+      // Check if all items exist and are in the same order
+      for (var i = 0; i < array1.length; i++) {
+        if (array1[i] !== array2[i]) {
+          return false;
+        }
+      }  
+
+      // If everything checks out, we can return true.
+      return true;
+    }
+
+    // The problem with the code is that it ONLY checks if the elements in array1 are the same in array2 in the the exact order & data type.
+    // That is, isArrayContentsEqual([1, 2, 'a',], [1, 2, 'a', 'b', 'c']), with this code will return true because array2: [1, 2, 'a', 'b', 'c'] includes elements that are identical to array1: [1, 2, 'a',] in the exact order & value.
+    // The code ignores to check if the arrays are of the same length. If they are not of the same length, in the exact order, and value, they cannot be truly equal and will give varying results depending on the situation.
+
+    // The new code will then be;
+    
+    // To check for equality, we first need to make sure the arrays are the same length. If not, they’re not equal and should return false.
+    // Arrays are order-specific. If two arrays have all the same items, but in a different order, they’re not strictly equal.
+    // We’ll loop through each item in the first array, and check to see if it’s index (the i variable) is the same as the index of that same item in the second array. If it’s not (or if the item doesn’t exist at all), we’ll return false.
+    
+
+
+  </script>
+</body>
+</html>

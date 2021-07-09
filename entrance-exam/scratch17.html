@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Scratch 17</title>
+  </head>
+
+  <body>
+    <ul id="items-ul"></ul>
+    <script>
+        // ------------------------------------------------------------------------
+        // OUR CODE
+        // function displayTodos() {
+        //   var todoListUl = document.getElementById('todo-list-ul');
+        //   todoListUl.innerHTML = '';
+
+        //   for (var i = 0; i < todos.length; i++) {
+        //     var newLi = document.createElement('li');
+
+        //     var removeButton = document.createElement('button');
+        //     removeButton.innerText = 'Delete';
+        //     removeButton.addEventListener('click', remove);
+        //     removeButton.id = `remove-${i}`;
+
+        //     newLi.append(editButton, toggleButton, removeButton);
+        //     todoListUl.appendChild(newLi);
+        //   }
+        // }
+
+        // function remove(event) {
+        //   var positionId = event.target.id.split('-')[1];
+
+        //   todos.splice(positionId, 1);
+
+        //   displayTodos();
+      
+        // }
+        // ------------------------------------------------------------------------
+
+
+        var itemsUl = document.getElementById('items-ul');
+
+        var items = [
+          {description: 'Item 1'},
+          {description: 'Item 2'},
+          {description: 'Item 3'},
+          {description: 'Item 4'},
+          {description: 'Item 5'},
+          {description: 'Item 6'},
+        ];
+
+        displayItems();
+
+        function displayItems() {
+          itemsUl.innerHTML = '';
+
+          for (var i = 0; i < items.length; i++) {
+            var itemLi = document.createElement('li');
+            itemLi.innerText = items[i].description;
+
+            var removeButton = document.createElement('button');
+            removeButton.innerText = 'Remove';
+            removeButton.id = 'remove-' + i;
+
+            itemLi.appendChild(removeButton);
+            itemsUl.appendChild(itemLi);
+          }
+        }
+
+        function handleRemove(event) {
+          var targetId = event.target.id;
+
+          if (targetId.split('-')[0] === 'remove') {
+            var position = targetId.split('-')[1];
+
+            items.splice(position, 1);
+
+            displayItems();
+          }
+
+            console.log(event.target);
+        }
+
+        itemsUl.addEventListener('click', handleRemove);
+
+
+
+        // REQUIREMENTS
+        // This application is supposed to fulfill the following requirements:
+        // 1. When first loaded, there should be six items displayed.
+        // 2. Each item should have a remove button.
+        // 3. Clicking a remove button should remove that item only.
+
+
+        // NOTE
+        // Pay attention to how the event listeners work. 
+
+        // In your todo list application, you've attached an event listener to every single remove button. 
+
+        // This application does something very different. Each button does *NOT* have an event listener, 
+          // but there is an event listener on the ul element. 
+
+        // Another thing to note is that while your todo list uses event.currentTarget, this application uses event.target
+
+
+        // QUESTIONS
+        // Which of the following statements will be true? 
+        
+        // 1. This application works as intended (it fulfills all stated requirements)
+          // True. 100%
+
+        // 2. This application does not work as intended (it does not fulfill all stated requirements).
+          // False. 100%
+
+        // 3. It works most of the time but clicking a remove button fails in a few instances.
+          // False. 100%
+          // The code given, works all the time when you click the remove button
+
+        // 4. event.target will always be a button.
+          // False. 100%
+
+        // 5. event.target will be either a button, li, or ul
+          // True. 100%
+          // Event target will refer to any element clicked but it has been proofed with an if statement so it only removes when you click the remove button.
+          
+        // 6. Replacing all instances of event.target with event.currentTarget will have no effect on the application.
+          // False. 100%.
+          // The application stops working, we can no longer remove items from thenpage.
+          // Because of the if statements that sets a proof that will do nothing if the left side of targetId (event.currentTarget.id) is not 'remove'.
+
+    </script>
+  </body>
+
+</html>

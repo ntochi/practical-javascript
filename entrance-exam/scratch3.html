@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Scratch 3</title>
+</head>
+<body>
+  <script>
+    var outside = 'outside';
+
+    function a(aParam) {
+      console.log(aParam)
+    }
+
+    function b() {
+      var bVar = 'b';
+
+      function bInner1() {
+        var bInner1Var = 'bInner1Var';
+
+        function bInner1Inner() {
+          var bInner1InnerVar = 'bInner1InnerVar';
+        }
+      }
+
+      function bInner2(bInner2Param) {
+        var bInner2Var = bInner2Param;
+      }
+    }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Scratch 11</title>
+  </head>
+
+  <body>
+    <script>
+      // myComputer.on changes from true to false. Then it changes from false to true.
+
+      var myComputer = {
+        name: 'shoebox',
+        on: true
+      };
+
+      function toggleOn(thing) {
+        var on = thing.on;
+
+        if (on === true) {
+          on = false;
+        } else {
+          on = true;
+        }
+        
+        console.log(on)
+
+      }
+
+      toggleOn(myComputer);
+      console.log(myComputer.on)
+      toggleOn(myComputer);
+      console.log(myComputer.on)
+      toggleOn(myComputer);
+      console.log(myComputer.on);
+
+
+      // myComputer.on changes from true to false. Then it changes from false to true. Finally it changes from true to false.
+    </script>
+  </body>
+
+</html>

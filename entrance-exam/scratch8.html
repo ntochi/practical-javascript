@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Scratch 8</title>
+</head>
+<body>
+  <script>
+    //  QUESTION CODE:
+    // function breakIntoPairs(integers) {
+    //   var result = [];
+      
+    //   for (var i = 0; i < integers.length; i = i + 2) {
+    //     result.push(
+    //       [ integers[i + 1], integers[i] ]
+    //     );
+    //   }
+
+    //   console.log(result);
+    // }
+
+
+    // function splitPairs(arr) {
+    //   var pairs = [];
+
+    //   for (var i=0 ; i < arr.length ; i+=2 ) {
+    //       if (arr[i+1] !== undefined) {
+    //         pairs.push ([arr[i], arr[i+1]]);
+    //       } else {
+    //         pairs.push ([arr[i]]);
+    //       }
+    //   }
+
+    //   console.log(pairs);
+    // };
+
+
+    function breakIntoPairs(integers) {
+      var result = [];
+
+        // Loop through array, then pair numbers
+        for (var i = 0; i < integers.length; i = i + 2) {
+          // Check if second integer in pair is not undefined
+          if (integers[i + 1] !== undefined) {
+            result.push([ integers[i], integers[i + 1] ]);
+          } else {
+            // Do nothing
+          }
+      }
+      
+      console.log(result);
+    }
+
+    
+    breakIntoPairs([4, 8, 2, 1, 3, 1]);
+    // breakIntoPairs([4, 8, 2, 1, 3, 1, 6]);
+    // splitPairs([4, 8, 2, 1, 3, 1]);
+    // splitPairs([4, 8, 2, 1, 3, 1, 6]);
+
+
+
+
+
+    // Noticed that the array elements are reversed
+    // The code given reverses the elements to be paired. If we run breakIntoPairs([4, 8, 2, 1, 3, 1]), it returns [[8, 4] [1, 2] [1, 3]]
+    // This is because in the for loop, the second element is pushed first to the result array: result.push([ integers[i + 1], integers[i] ]);
+    // The solution will be to change the order in which the elements are pushed to the result array: result.push([ integers[i], integers[i + 1] ]);
+   
+    // The second problem is that the code groups an extra integer with an undefined value instead of ignoring the integer.
+    // The solution to this will be to check if an integer has a pair (that is, there is another integer that is not undefined) before pairing the array elements.
+    // If there is the an integer without a pair i.e integers[i + 1] === undefined, then the code should not push into the result array.
+
+    // Another additional solution to a problem will be to check if all the numbers passed into the array are all integers, before running the code.

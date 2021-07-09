@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Scratch 16</title>
+  </head>
+
+  <body>
+    <ul id="items-ul"></ul>
+    <script>
+      var items = ['first', 'second', 'third'];
+
+      function displayItems() {
+        var itemsUl = document.getElementById('items-ul');
+        itemsUl.innerHTML = '';
+
+        var itemLi = document.createElement('li');
+
+        for (var i = 0; i < items.length; i++) {
+          itemLi.innerText = items[i];
+          itemsUl.appendChild(itemLi);
+          // Check.....
+          // console.log(itemLi);
+          // console.log(itemsUl);
+        }
+
+        console.log(itemLi);
+
+      }
+
+      displayItems();
+      // items.length li elements will be created
+      // itemsUl.appendChild will run items.length times
+      // After displayItems runs, there will be items.length li elements on the page
+      // None of the above
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Scratch 14</title>
+  </head>
+
+  <body>
+    <script>
+      function function1(a) {
+        console.log('function 1 ran');
+        return a(function1);
+      }
+
+      function function2(a) {
+        console.log('function 2 ran');
+        return a;
+      }
+
+      var someVar = function2(function1);
+
+      someVar = function1(function2);
+
+      // At the end of the code....
+      // console.log(someVar);
+
+      // How many times will function1 run? 
+      // How many times will function2 run?
+      // When function2 runs the last time, it will return what?
+      // When function1 runs the last time, it will return what?
+      // What will be the value of someVar after this code runs? 
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Scratch 4</title>
+</head>
+<body>
+  <script>
+    var myArray = [ { description: 'Gordon' } ];
+
+    function exampleFunction(thing) {
+      thing.description = 'changed by exampleFunction';
+
+      thing.thing = { description: 'new thing' };
+    }
+
+
+    exampleFunction(myArray[0]);
+    exampleFunction(myArray[0].thing);
+    console.log(myArray);
+  </script>
+</body>
+</html>

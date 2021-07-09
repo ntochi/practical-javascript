@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Scratch 15</title>
+  </head>
+
+  <body>
+    <input id="input-1">
+    <script>
+      var input1 = document.getElementById('input-1');
+
+      function changeValue(input) {
+        var value = input.value;
+
+        if (value === 'changed') {
+          value = '';
+        } else {
+          value = 'changed';
+        }
+      }
+
+      changeValue(input1);
+      changeValue(input1);
+
+
+    </script>
+  </body>
+
+</html>

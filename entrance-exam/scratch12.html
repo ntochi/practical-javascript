@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Scratch 12</title>
+  </head>
+
+  <body>
+    <script>
+      var array1 = [];
+
+      var array2 = [];
+
+      array1.push({});
+      // Check.....
+      console.log(array1);
+      console.log(array2);
+
+      array2.push({});
+      // Check.....
+      console.log(array1);
+      console.log(array2);
+
+      array2.push(array1[0]);
+      // Check.....
+      console.log(array1);
+      console.log(array2);
+      if (array1[0] === array2[1]){
+        console.log(true);
+      }
+
+      array1.push({});
+      // Check.....
+      console.log(array1);
+      console.log(array2);
+
+      var thing = {};
+      // Check.....
+      console.log(array1);
+      console.log(array2);
+
+      array1.push(thing);
+      // Check.....
+      console.log(array1);
+      console.log(array2);
+
+      thing.animal = 'platypus';
+      // Check.....
+      console.log(array1);
+      console.log(array2);
+
+      array2.push({animal: 'platypus'});
+      // Check.....
+      console.log(array1);
+      console.log(array2);
+      if (array1[2] === array2[2]){
+        console.log(true);
+      } else {
+        console.log(false);
+      }
+
+      // At the end of the code
+      console.log(array1);
+      console.log(array2);
+
+
+      // How many objects in array1 are NOT in array2?
+    </script>
+  </body>
+
+</html>

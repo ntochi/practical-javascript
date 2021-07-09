@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Test</title>
+</head>
+<body>
+  <script>
+
+    // Code 1
+    var array1 = ['yo', 'hi'];
+    array1[1] = array1[0];
+
+    var array2 = ['bye', 'later'];
+    array2.splice(0, 1);
+
+    var array3 = ['hello', 'howdy', 'hola'];
+    array3[0] = array3[2];
+
+    var array4 = [];
+    array4[0] = array1[1]
+    array4[1] = array2[0]
+    array4[2] = array3[2]
+
+    // Code 2
+    function exampleFunction(a, b, c) {
+      console.log(a);
+      console.log(b);
+      console.log(c);
+    }
+
+    // 1
+    exampleFunction();
+    // 2
+    exampleFunction();
+    // 3
+    exampleFunction(1);
+    // 4
+    exampleFunction(1);
+    // 5
+    exampleFunction(1);
+    // 6
+    exampleFunction(1, 2);
+    // 7
+    exampleFunction(1, 2);
+    // 8
+    exampleFunction(1, 2);
+    // 9
+    exampleFunction(1, 2, 3, 4);
+
+    
+  </script>
+
+</body>
+</html>
