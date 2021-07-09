@@ -40,7 +40,7 @@
     }
 
     function edit(event) {
-      var positionId = event.target.id.split('-')[1];
+      var positionId = event.currentTarget.id.split('-')[1];
       var oldValue = todos[positionId].text
       var newValue = prompt('Edit todo', oldValue);
 
@@ -52,13 +52,13 @@
     }
 
     function remove(event) {
-      var positionId = event.target.id.split('-')[1];
+      var positionId = event.currentTarget.id.split('-')[1];
       todos.splice(positionId, 1);
       displayTodos();
     }
 
     function toggle(event) {
-      var positionId = event.target.id.split('-')[1];
+      var positionId = event.currentTarget.id.split('-')[1];
 
       if (todos[positionId].completed === true) {
         todos[positionId].completed = false;
