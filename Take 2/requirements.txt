@@ -1,3 +1,8 @@
+For all its power, the computer is a harsh taskmaster. 
+Its programs must be correct.
+And what we wish to say must be said accurately in every detail.
+
+
 Version 1
 [] It should have a place to store todos
 [] It should have a way to display todos
